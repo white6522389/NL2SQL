@@ -1,0 +1,3 @@
+export interface StageEvent { stage:string; status:string; message:string; trace_id?:string; elapsed_ms?:number }
+export interface Chart { type:'line'|'bar'|'pie'; title:string; x_field?:string; y_field?:string; name_field?:string; value_field?:string; data:Record<string,unknown>[] }
+export interface WorkflowResult { success:boolean; conversation_id?:string; sql?:string; error?:string; plan:{objective:string}; execution?:{rows:Record<string,unknown>[];columns:string[];row_count:number;truncated:boolean}; analysis?:{summary:string;insights:string[];chart?:Chart}; metrics?:{trace_id:string;total_elapsed_ms:number;stage_timings_ms:Record<string,number>;llm_call_count:number;total_tokens:number;retry_count:number} }

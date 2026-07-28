@@ -1,0 +1,66 @@
+name: ssss NL2SQL business benchmark
+cases:
+  - id: east_china_top_product_chart
+    question: 查询2025年华东地区销售额最高的商品，并生成柱状图
+    expected_tables: [orders, products]
+    expected_filters: {region: 华东}
+    expected_columns: [product_name, total_sales]
+    expected_rows: [{product_name: MacBook, total_sales: 12999}]
+    expected_chart_type: bar
+
+  - id: south_china_top_product
+    question: 查询2025年华南地区销售额最高的商品
+    expected_tables: [orders, products]
+    expected_filters: {region: 华南}
+    expected_columns: [product_name, total_sales]
+    expected_rows: [{product_name: MacBook, total_sales: 12999}]
+
+  - id: north_china_total_sales
+    question: 查询2025年华北地区的总销售额
+    expected_tables: [orders]
+    expected_filters: {region: 华北}
+    expected_columns: [total_sales]
+    expected_rows: [{total_sales: 12997}]
+
+  - id: east_china_product_ranking
+    question: 按销售额从高到低列出2025年华东地区的商品
+    expected_tables: [orders, products]
+    expected_filters: {region: 华东}
+    expected_columns: [product_name, total_sales]
+    expected_rows:
+      - {product_name: MacBook, total_sales: 12999}
+      - {product_name: ThinkPad, total_sales: 7999}
+      - {product_name: iPhone15, total_sales: 6999}
+
+  - id: category_sales_chart
+    question: 统计2025年各商品类别销售额并生成柱状图
+    expected_tables: [orders, products]
+    expected_filters: {}
+    expected_columns: [category, total_sales]
+    expected_rows:
+      - {category: 电脑, total_sales: 33997}
+      - {category: 手机, total_sales: 19996}
+    expected_chart_type: bar
+
+  - id: monthly_sales_trend
+    question: 查询2025年每月销售额趋势并生成折线图
+    expected_tables: [orders]
+    expected_filters: {}
+    expected_columns: [month, total_sales]
+    expected_chart_type: line
+
+  - id: beijing_customer_orders
+    question: 查询北京客户的订单及商品名称
+    expected_tables: [customers, orders, products]
+    expected_filters: {city: 北京}
+    expected_columns: [customer_name, product_name]
+    expected_rows:
+      - {customer_name: 王五, product_name: 小米手机}
+      - {customer_name: 王五, product_name: MacBook}
+
+  - id: product_category_filter
+    question: 查询手机类别商品在2025年的总销售额
+    expected_tables: [orders, products]
+    expected_filters: {category: 手机}
+    expected_columns: [total_sales]
+    expected_rows: [{total_sales: 19996}]

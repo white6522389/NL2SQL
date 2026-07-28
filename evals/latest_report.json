@@ -1,0 +1,100 @@
+{
+  "cases": [
+    {
+      "case_id": "east_china_top_product_chart",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 4638.807100000122,
+      "error": null
+    },
+    {
+      "case_id": "south_china_top_product",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 3097.6655000013125,
+      "error": null
+    },
+    {
+      "case_id": "north_china_total_sales",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 2863.291699999536,
+      "error": null
+    },
+    {
+      "case_id": "east_china_product_ranking",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 2984.993399999439,
+      "error": null
+    },
+    {
+      "case_id": "category_sales_chart",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 4330.175499999314,
+      "error": null
+    },
+    {
+      "case_id": "monthly_sales_trend",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 4122.333499999513,
+      "error": null
+    },
+    {
+      "case_id": "beijing_customer_orders",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 2867.6077000000078,
+      "error": null
+    },
+    {
+      "case_id": "product_category_filter",
+      "passed": true,
+      "execution_success": true,
+      "table_selection_correct": true,
+      "filter_literals_preserved": true,
+      "columns_correct": true,
+      "result_correct": true,
+      "chart_correct": true,
+      "elapsed_ms": 2701.0066000002553,
+      "error": null
+    }
+  ]
+}
