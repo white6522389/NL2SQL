@@ -210,6 +210,40 @@ SQL 和有限结果预览，不会把无限增长的原始聊天记录全部发�
 当前会话记忆保存在后端进程内，默认最多 500 个会话、1 小时过期。生产部署
 可将 `ConversationMemoryStore` 替换为 Redis，并按登录用户隔离 conversation ID。
 
+## MCP 集成
+
+项目既可以作为 MCP Server 暴露 NL2SQL 能力，也可以作为 MCP Client
+发现和调用其他 MCP Server 的工具。官方 MCP SDK 需要 Python 3.10+：
+
+```powershell
+pip install -e ".[fastapi,openai,mysql,test,mcp]" python-dotenv
+```
+
+启动 stdio 或 Streamable HTTP MCP Server：
+
+```powershell
+python -m backend.mcp_server --transport stdio
+python -m backend.mcp_server --transport streamable-http --host 127.0.0.1 --port 8001
+```
+
+HTTP 模式的 MCP 地址为 `http://127.0.0.1:8001/mcp`，提供四个工具：
+
+- `retrieve_schema`：召回与自然语言问题相关的 Schema；
+- `validate_sql`：验证 SQL 是否只读并检查表、字段；
+- `execute_sql`：验证后执行有超时和行数上限的 SELECT；
+- `analyze_question`：运行完整 NL2SQL 工作流。
+
+列出并调用远程工具：
+
+```powershell
+python examples/mcp_client_example.py --url http://127.0.0.1:8001/mcp
+python examples/mcp_client_example.py --tool retrieve_schema --arguments '{"question":"查询销售额"}'
+```
+
+应用代码还可以调用 `McpClient.discover_tools()`，将远程工具转换成项目现有的
+`Tool` 对象。生产环境不要直接公开无认证的 MCP 地址；应继续使用只读数据库账号，
+并在 MCP 服务前配置认证、TLS 和访问审计。
+
 ## 安全设计
 
 - Validator 只接受单条 `SELECT`
